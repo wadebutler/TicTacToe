@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { $Black, $White, $Blue, $Red, $Green } from '../utilities/StyleVariables';
+import { $White, $Blue } from '../utilities/StyleVariables';
 
 export default function Header() {
     return (

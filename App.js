@@ -4,7 +4,7 @@ import Header from './src/components/Header';
 import PlayerTurnIndicator from './src/components/PlayerTurnIndicator';
 import Cross from './src/components/Cross';
 import Circle from './src/components/Circle';
-import { $Black, $White, $Blue, $Red, $Green } from './src/utilities/StyleVariables';
+import { $Black, $White, $Blue } from './src/utilities/StyleVariables';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -39,6 +39,11 @@ export default function App() {
     setWinner(0)
     setActivePlayer(1)
     setGameBoard(Array(9).fill(null))
+  }
+
+  const resetTracker = () => {
+    setPlayerOneWinCount(0)
+    setPlayerTwoWinCount(0)
   }
 
   // pulled from react tutorial page
@@ -200,6 +205,10 @@ export default function App() {
               <Text style={styles.whiteFont}>{playerTwoWinCount}</Text>
           }
         </View>
+
+        <TouchableOpacity onPress={() => resetTracker()}>
+          <Text style={[styles.whiteFont, { marginTop: 4 }]}>Reset</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

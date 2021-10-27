@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { $Black, $White, $Blue, $Red, $Green } from '../utilities/StyleVariables';
+import { $Black, $Red, $Green } from '../utilities/StyleVariables';
 
 export default function PlayerTurnIndicator({activePlayer}) {
     return (
@@ -8,6 +8,7 @@ export default function PlayerTurnIndicator({activePlayer}) {
             {
                 activePlayer !== 1 ? null : <Text style={styles.title}>It's Player x's Turn</Text>
             }
+
             {
                 activePlayer !== 2 ? null : <Text style={styles.title}>It's Player o's Turn</Text>
             }

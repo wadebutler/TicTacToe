@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
-import { $Black, $White, $Blue, $Red, $Green } from '../utilities/StyleVariables';
+import { $Green } from '../utilities/StyleVariables';
 
 export default function Circle({size}) {
     return (
