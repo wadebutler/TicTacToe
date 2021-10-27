@@ -133,67 +133,71 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
-      <View style={{height: 100,}}>
+      <View style={[styles.messageContainer, {backgroundColor : winner === 0 ? null : $Blue}]}>
         {
           winner === 0 ? null :
-            <View style={{ alignItems: 'center' }}>
+            <View style={styles.alignmentContainer}>
               {
                 winner === 1 ? 
-                  <View style={{ flexDirection: 'row', height: 30, alignItems: 'center', marginVertical: 5 }}>
-                    <Text>Congrats player </Text>
+                  <View style={styles.winningMessage}>
+                    <Text style={styles.whiteFont}>Congrats player </Text>
                     <Cross size={20} />
-                    <Text> you won!</Text>
+                    <Text style={styles.whiteFont}> you won!</Text>
                   </View>
                 : null
               }
 
               {
                 winner === 2 ? 
-                  <View style={{ flexDirection: 'row', height: 30, alignItems: 'center', marginVertical: 5 }}>
-                    <Text>Congrats player </Text>
+                  <View style={styles.winningMessage}>
+                    <Text style={styles.whiteFont}>Congrats player </Text>
                     <Circle size={15} />
-                    <Text> you won!</Text>
+                    <Text style={styles.whiteFont}> you won!</Text>
                   </View>
                 : null
               }
 
               {
                 winner === 3 ?
-                  <View style={{ flexDirection: 'row', height: 30, alignItems: 'center', marginVertical: 5 }}>
-                    <Text>Oops, better luck Next time.</Text>
+                  <View style={styles.winningMessage}>
+                    <Text style={styles.whiteFont}>Oops, better luck next time.</Text>
                   </View>
                 : null
               }
 
               <TouchableOpacity onPress={() => playAgain()}>
-                <Text>Play Again?</Text>
+                <Text style={[styles.whiteFont, {marginTop: 4}]}>Play Again?</Text>
               </TouchableOpacity>
             </View>
         }
       </View>
 
-      <View style={{alignItems: 'center'}}>
-        <Text>Win Count</Text>
+      <View style={styles.winContainer}>
+        <Text style={styles.whiteFont}>Win Count</Text>
 
-        <View style={{ flexDirection: 'row' }}>
-          <View style={{ flexDirection: 'row' }}>
+        <View style={styles.playerContainer}>
+          <View style={styles.countContainer}>
             <Cross size={20} />
-            <Text>: </Text>
+
+            <Text style={styles.whiteFont}>: </Text>
           </View>
+
           {
             playerOneWinCount === null ? null :
-              <Text>{playerOneWinCount}</Text>
+              <Text style={styles.whiteFont}>{playerOneWinCount}</Text>
           }
         </View>
 
-        <View style={{ flexDirection: 'row' }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={styles.playerContainer}>
+          <View style={styles.countContainer}>
             <Circle size={15} />
-            <Text> : </Text>
+
+            <Text style={styles.whiteFont}> : </Text>
           </View>
+
           {
             playerOneWinCount === null ? null :
-              <Text>{playerTwoWinCount}</Text>
+              <Text style={styles.whiteFont}>{playerTwoWinCount}</Text>
           }
         </View>
       </View>
@@ -213,7 +217,42 @@ const styles = StyleSheet.create({
     justifyContent: 'center', 
     flexWrap: 'wrap', 
     maxWidth: windowWidth,
-    marginVertical: 50,
+    marginVertical: 20,
+  },
+  messageContainer: {
+    height: 80, 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    borderRadius: 10, 
+    paddingHorizontal: 20,
+    marginBottom: 20,
+  },
+  winContainer: {
+    alignItems: 'center', 
+    backgroundColor: $Blue, 
+    padding: 10, 
+    borderRadius: 10,
+  },
+  playerContainer: {
+    flexDirection: 'row', 
+    justifyContent: 'center',
+  },
+  countContainer: {
+    flexDirection: 'row', 
+    alignItems: 'center',
+  },
+  winningMessage: {
+    flexDirection: 'row', 
+    height: 25, 
+    alignItems: 'center', 
+    justifyContent: 'center',
+  },
+  alignmentContainer: {
+    alignItems: 'center',
+  },
+  whiteFont: {
+    color: $White, 
+    fontSize: 15,
   },
   tileTopLeft: {
     height: windowWidth/3.3, 
